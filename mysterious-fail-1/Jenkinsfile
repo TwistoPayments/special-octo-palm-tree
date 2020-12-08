@@ -15,10 +15,10 @@ pipeline {
                 sh '''
                 set -ex
                 cd mysterious-fail-1
+                mkdir build
                 docker build . -f Dockerfile.test -t reversing-figlet-test
 
                 docker run --rm -i -v "$(pwd)/build/:/app/build" reversing-figlet-test pytest --junitxml=build/junit.xml
-                chown -R jenkins build
                 '''
                 junit 'mysterious-fail-1/build/junit.xml'
             }
