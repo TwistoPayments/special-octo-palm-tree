@@ -20,6 +20,7 @@ pipeline {
                 docker run --rm -i -v "$(pwd)/build/:/app/build" reversing-figlet-test pytest --junitxml=build/junit.xml
                 '''
                 junit 'mysterious-fail-1/build/junit.xml'
+                chown jenkins
             }
         }
         stage('Deploy') {
