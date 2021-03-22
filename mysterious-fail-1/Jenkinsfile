@@ -21,6 +21,7 @@ pipeline {
                 '''
                 junit 'mysterious-fail-1/build/junit.xml'
                 sh '''
+                cd mysterious-fail-1
                 docker run --rm -i -v "$(pwd)/build/:/app/build" reversing-figlet-test rm build/junit.xml
                 '''
             }
