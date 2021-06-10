@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cd mysterious-fail-1/ && docker build . -t reversing-figlet'
+                sh 'cd mysterious-fail-1/ && docker build . --build-arg USERID=$(id -u jenkins) -t reversing-figlet'
             }
         }
         stage('Test') {
