@@ -12,6 +12,8 @@ USER mysterious
 
 RUN pip install --user -r requirements.txt
 
+ENV PATH="${PATH}:/home/mysterious/.local/bin"
+
 COPY . /app
 
 CMD ["python3", "reverse_figlet.py"]
