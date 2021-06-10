@@ -1,7 +1,15 @@
 FROM python:3.8-slim
 
+ARG USERID
+
+ENV USERID=${USERID}
+
+RUN useradd -u ${USERID} mysterious
+
 COPY requirements.txt /app/
 WORKDIR /app
+USER mysterious
+
 RUN pip install -r requirements.txt
 
 COPY . /app
