@@ -4,7 +4,7 @@ ARG USERID
 
 ENV USERID=${USERID}
 
-RUN useradd -u ${USERID} -d mysterious
+RUN useradd -u ${USERID} -d /home/mysterious mysterious
 
 COPY requirements.txt /app/
 WORKDIR /app
