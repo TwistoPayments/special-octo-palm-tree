@@ -15,7 +15,7 @@ pipeline {
                 sh '''
                 set -ex
                 cd mysterious-fail-1
-                docker build . -f Dockerfile.test -t reversing-figlet-test
+                docker build . -f Dockerfile.test --build-arg USERID=$(id -u jenkins) -t reversing-figlet-test
 
                 docker run --rm -i -v "$(pwd)/build/:/app/build" reversing-figlet-test pytest --junitxml=build/junit.xml
                 '''
