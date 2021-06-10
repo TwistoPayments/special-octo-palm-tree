@@ -10,7 +10,7 @@ COPY requirements.txt /app/
 WORKDIR /app
 USER mysterious
 
-RUN pip install -r requirements.txt
+RUN pip install --user -r requirements.txt
 
 COPY . /app
 
